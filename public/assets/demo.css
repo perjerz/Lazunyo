@@ -21,7 +21,7 @@ header{
 	text-align: center;
     width: 100%;
     padding: 25px 40px;
-    background-color: #673AB7;
+    background-color: #046380;
     overflow: hidden;
 }
 
@@ -29,11 +29,11 @@ header{
 header h1{
     float: left;
 	font: normal 24px/1.5 'Open Sans', sans-serif;
-	color: #fff;
+	color: #F8FFFC;
 }
 
 header a{
-    color:#fff;
+    color:#EFECCA;
     float: right;
     text-decoration: none;
     display: inline-block;
@@ -41,13 +41,13 @@ header a{
     border-radius: 3px;
     font: bold 14px/1 'Open Sans', sans-serif;
     text-transform: uppercase;
-    background-color:#F05283;
+    background-color:#EFECCA;
 
 }
 
 ul {
     list-style: none;
-    border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid #f2f2f2;
     background-color: #FFF;
     padding: 20px;
     margin-top: 0;
@@ -59,7 +59,7 @@ ul a{
     text-decoration: none;
     color: #FFF;
     text-align: left;
-    background-color: #BCB8C2;
+    background-color: #E6E2AF;
     padding: 10px 16px;
     border-radius: 2px;
     opacity: 0.8;
@@ -73,7 +73,7 @@ ul a{
 }
 
 ul li a.active{
-    background-color: #F05283;
+    background-color: #A7A37E;
     pointer-events: none;
 }
 
