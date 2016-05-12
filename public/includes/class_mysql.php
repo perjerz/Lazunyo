@@ -13,15 +13,15 @@ class Database {
 		$this->username = $user;
 		$this->password = $pass;
 		#-> Connect to DB
-		$this->conndb = mysqli_connect($this->host,$this->username,$this->password) or die (mysqli_error());
-		$this->db = mysqli_select_db($this->database,$this->conndb) or die (mysqli_error());
+		$this->conndb = mysql_connect($this->host,$this->username,$this->password) or die (mysql_error());
+		$this->db = mysql_select_db($this->database,$this->conndb) or die (mysql_error());
 		mysql_query("SET NAMES UTF8");
 	}
 
 	#-> Close Database
 	function closedb() {
 		// mysql_close($this->conndb) or die (mysql_error());
-		mysqli_close($this->conndb) or die (mysql_error());
+		mysql_close($this->conndb) or die (mysql_error());
 
 	}
 
@@ -71,10 +71,10 @@ class Database {
 		// $data = ["name":"Company1"]
 		#-> INSERT INTO tbl (data1,data2) VALUES ('val1','val2')
 		$sql = "INSERT INTO ".$table." ".$add."VALUES ".$val;
-		if(mysqli_query($sql)) {
+		if(mysql_query($sql)) {
 			return true;
 		} else {
-			mysqli_error();
+			mysql_error();
 			return false;
 		}
 	}
