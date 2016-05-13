@@ -1,9 +1,9 @@
 <?php
 #-> Include config and class files.
 session_start();
-if($_SESSION > 0)
+if(isset($_SESSION['id']) && $_SESSION['id'] >= 0)
 {
-	echo "<script type='text/javascript'>window.location.href = 'show-product.php';</script>";
+	echo "<script type='text/javascript'>alert('You have already logged in.');window.location.href = 'show-product.php';</script>";
 }
 include_once("/includes/config.php");
 include_once("/includes/class_mysql.php");
@@ -17,7 +17,6 @@ $table = 'user';
 $email = $_POST['email'];
 $password = $_POST['password'];
 $query = $db->querydb("SELECT * FROM ".$table." WHERE username='$email' AND password='$password'");
-echo "SELECT * FROM ".$table." WHERE username='$email' AND password='$password'";
 $arr = array();
 #-> Preparing return data.
 if($query) {

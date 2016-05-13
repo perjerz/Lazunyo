@@ -1,5 +1,9 @@
 <?php
 session_start();
+if($_SESSION['id'] < 0)
+{
+    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.php';</script>";
+}
 ?>
 <script>
 function confirmDelete()
@@ -32,8 +36,8 @@ function confirmDelete()
 
     <ul>
         <li><a href="show-product.php">Product Info</a></li>
-        <li><a href="add-product.html"><!--class="active"-->Add</a></li>
-        <li><a href="edit-product.html">Edit</a></li>
+        <li><a href="add-product.php"><!--class="active"-->Add</a></li>
+        <!--li><a href="edit-product.html">Edit</a></li-->
     </ul>
 
 
@@ -62,13 +66,14 @@ function confirmDelete()
                 $i =0;
                 $arr = array();
                 if($query){
-                    echo "<table border='1' style='width:100%'><tr><td>No.</td><td>ID</td><td>Name</td><td>Price</td><td>Image</td><td>Description</td><td>Amount</td><td>Likes</td><td>Option</td></tr>";
+                    echo "<table border='1' style='width:100%'><tr><td>No.</td><td>ID</td><td>Name</td><td>Price</td><td>Image</td><td>Description</td><td>Amount</td><td>Likes</td><td>Delete</td><td>Edit</td></tr>";
                     while($itemData = $db->fetchAssoc($query)){
                         echo "<tr><td>".$i."</td>";
                         foreach ($itemData as $value) {
                             echo "<td>".$value."</td>";
                          }
                          echo "<td><a href="."delete-product.php?id={$itemData['item_id']} onclick='return confirmDelete();'>Delete</a></td>";
+                         echo "<td><a href="."edit-product.php?id={$itemData['item_id']}>Edit</a></td>";
                          echo "</tr>";
                 /*$itemData["item_id"].$itemData["item_id"];
                 $itemData["item_name"];
