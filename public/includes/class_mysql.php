@@ -35,7 +35,7 @@ class Database {
 		}
 	}
 
-	#-> Fetch
+	#-> Fetch Both
 	function fetch($query) {
 		if($result = mysql_fetch_array($query)) {
 			return $result;
@@ -44,7 +44,15 @@ class Database {
 			return false;
 		}
 	}
-
+	#-> Fetch Assoc
+	function fetchAssoc($query) {
+		if($result = mysql_fetch_array($query,MYSQL_ASSOC)) {
+			return $result;
+		} else {
+			mysql_error();
+			return false;
+		}
+	}
 	#-> Add
 	function add($table,$data) {
 		$key = array_keys($data);
