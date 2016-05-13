@@ -1,5 +1,6 @@
 <?php
 #-> Include config and class files.
+session_start();
 include_once("/includes/config.php");
 include_once("/includes/class_mysql.php");
 #-> Get data from js and initialize
@@ -21,14 +22,18 @@ if((strlen($_POST['name']) == 0)||($_POST['email']==null) || ($_POST['password']
 #-> Prepaing data for return.
 $arr = array();
 if($query) {
-	$arr["status"] = "success";
-	$arr["messages"] = "Registered Successfully.";
+	echo "<script type='text/javascript'>alert('Registered Successfully');window.location.href = 'form-login.html';</script>";
+	/*$arr["status"] = "success";
+	$arr["messages"] = "Registered Successfully.";*/
+	#header("Location: form-login.html");
 } else {
-	$arr["status"] = "error";
-	$arr["messages"] = "Registered failed. please contact admin.";
+	echo "<script type='text/javascript'>alert('Registered failed. please contact admin.');window.location.href = 'form-register.html';</script>";
+	/*$arr["status"] = "error";
+	$arr["messages"] = "Registered failed. please contact admin.";*/	
+	#header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 #-> Return the data.
-echo json_encode($arr);
+#echo json_encode($arr);
 #-> Close database.
 $db->closedb();
 ?>

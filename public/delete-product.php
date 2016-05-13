@@ -1,5 +1,5 @@
-
 <?php
+session_start();
 #-> Include config and class files.
 include_once("/includes/config.php");
 include_once("/includes/class_mysql.php");
@@ -19,6 +19,7 @@ $arr = array();
 if($query) {
 	$arr["status"] = "success";
 	$arr["messages"] = "Delete company successfully";
+	echo "<script type='text/javascript'>window.location.href = 'show-product.php';</script>";#$messages = "Please enter your 
 } else {
 	$arr["status"] = "error";
 	$arr["messages"] = "Failed to delete";

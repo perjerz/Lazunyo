@@ -1,17 +1,9 @@
 <?php
 session_start();
-?>
-<script>
-function confirmDelete()
-{
-  var x = confirm("Are you sure you want to delete?");
-  if (x)
-      return true;
-  else
-    return false;
-}
-</script>
+>
+<!DOCTYPE html>
 <html>
+
 <head>
 
     <meta charset="utf-8">
@@ -31,8 +23,8 @@ function confirmDelete()
     </header>
 
     <ul>
-        <li><a href="show-product.php">Product Info</a></li>
-        <li><a href="add-product.html"><!--class="active"-->Add</a></li>
+        <li><a href="index.html">Product's Info</a></li>
+        <li><a href="add-product.html" class="active">Add</a></li>
         <li><a href="edit-product.html">Edit</a></li>
     </ul>
 
@@ -57,18 +49,18 @@ function confirmDelete()
                 $db = new Database();
                 $db->connectdb(DB_NAME,DB_USER,DB_PASS);
                 #-> Query the data.
-                $query = $db->querydb("SELECT item_id,item_name,item_price,item_img_url,item_description,item_amount,item_likes_count FROM ".TB_ITEM." WHERE item_owner =".$_SESSION['id'].";");
+                $query = $db->querydb("SELECT item_id,item_name,item_price,item_img_url,item_description,item_amount,item_likes_count FROM ".TB_ITEM." WHERE item_owner ="."0".";");
                 #-> Preparing return data.
                 $i =0;
                 $arr = array();
                 if($query){
-                    echo "<table border='1' style='width:100%'><tr><td>No.</td><td>ID</td><td>Name</td><td>Price</td><td>Image</td><td>Description</td><td>Amount</td><td>Likes</td><td>Option</td></tr>";
+                    echo "<table border='1' style='width:50%'><tr><td>No.</td><td>ID</td><td>Name</td><td>Price</td><td>Image</td><td>Description</td><td>Amount</td><td>Likes</td><td>Option</td></tr>";
                     while($itemData = $db->fetchAssoc($query)){
                         echo "<tr><td>".$i."</td>";
                         foreach ($itemData as $value) {
                             echo "<td>".$value."</td>";
                          }
-                         echo "<td><a href="."delete-product.php?id={$itemData['item_id']} onclick='return confirmDelete();'>Delete</a></td>";
+                         echo "<td><a href="."delete-product.php?id={$itemData['item_id']}>Delete</a></td>";
                          echo "</tr>";
                 /*$itemData["item_id"].$itemData["item_id"];
                 $itemData["item_name"];
@@ -89,6 +81,7 @@ function confirmDelete()
                 $arr["status"] = "success";
                 $arr["messages"] = "success query all items";
                 #-> Return json data.
+                echo json_encode($arr,JSON_NUMERIC_CHECK);
                 #-> Close database.
                 $db->closedb();
                 ?>
