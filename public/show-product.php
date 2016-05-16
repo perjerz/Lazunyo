@@ -1,8 +1,8 @@
 <?php
 session_start();
-if($_SESSION['id'] < 0)
+if(!isset($_SESSION['id']) || $_SESSION['id'] < 0)
 {
-    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.php';</script>";
+    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.html';</script>";
 }
 ?>
 <script>

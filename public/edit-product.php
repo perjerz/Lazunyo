@@ -92,7 +92,6 @@ $db->closedb();
                 <label>
                     <span>Product's Quantity</span>
                     <input type="number" name="qty" min="0" placeholder="Fill Image's link" required value="<?php echo $itemData['item_amount'];?>">
-                    <input type="number" name="qty" min="0" placeholder="Fill Product's quantity" required>
                 </label>
             </div>
             <input type="hidden" value="<?php echo $id?>" name="id"/>

@@ -1,7 +1,8 @@
 <?php
-if(isset($_SESSION['id']) && $_SESSION['id'] < 0)
+session_start();
+if(!isset($_SESSION['id']) || $_SESSION['id'] < 0)
 {
-    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.php';</script>";
+    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.html';</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -44,7 +45,7 @@ if(isset($_SESSION['id']) && $_SESSION['id'] < 0)
             <div class="form-row">
                 <label>
                     <span>Product's Name</span>
-                    <input type="text" name="name" placeholder="Fill Product's Name" required>
+                    <input type="text" name="name" placeholder="Fill Product's Name" pattern="[A-Za-z]" required>
                 </label>
             </div>
             <div class="form-row">
@@ -68,7 +69,7 @@ if(isset($_SESSION['id']) && $_SESSION['id'] < 0)
             <div class="form-row">
                 <label>
                     <span>Product's Quantity</span>
-                    <input type="number" name="qty" min="0" placeholder="Fill Image's link" required>
+                    <input type="number" name="qty" min="0" placeholder="Fill Image's link" required pattern="https?://.+">
                 </label>
             </div>
             <div class="form-row">
