@@ -8,5 +8,5 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: 'http://localhost/lazunyo/form-login.html'
-        	browser: chrome
+            url: 'http://localhost/lazunyo/form-login.html/'
+            browser: chrome
