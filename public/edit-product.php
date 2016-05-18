@@ -58,7 +58,7 @@ function logout()
     <ul>
         <li><a href="show-product.php">Product's Info</a></li>
         <li><a href="add-product.php"><!--class="active"-->Add</a></li>
-        <!--li><a href="edit-product.html">Edit</a></li-->
+        <li><a href="#" class="active">Edit</a></li>
     </ul>
 
 
@@ -73,7 +73,7 @@ function logout()
 
             <div class="form-row">
                 <label>
-                    <span>Product's Name</span> 
+                    <span>Product's Name</span>
                     <input type="text" name="name" placeholder="Fill Product's Name" required value="<?php echo $itemData['item_name'];?>">
                 </label>
             </div>
