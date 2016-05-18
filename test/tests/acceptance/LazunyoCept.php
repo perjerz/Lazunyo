@@ -1,7 +1,7 @@
 <?php 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Add product to database.');
-$I->amOnPage('/');
+//$I->amOnPage('/');
 $I->seeCurrentUrlEquals('/form-login.html');
 
 function test_login($I) {
@@ -17,12 +17,29 @@ function test_login($I) {
 function test_addItem($I) {
 	// adding item
 	$I->amOnPage('/show-product.php');
-	$I->fillField('','');
-	$I->fillField('','');
-	$I->fillField('','');
-	$I->fillField('','');
+	$I->click(''); 					// click add item
+	$I->fillField('','');			// name
+	$I->fillField('','');			// price
+	$I->fillField('','');			// desc.
+	$I->fillField('','');			// quan
+	$I->click(''); 					// confirm
+	//$I->seeCurrentUrlEquals('');
+}
+
+function test_editItem($I) {
+	// editting item
+	$I->amOnPage('/show-product,php');
 	$I->click('');
-	$I->seeCurrentUrlEquals('');
+	$I->fillField('','');			// name
+	$I->fillField('','');			// price
+	$I->fillField('','');			// desc.
+	$I->fillField('','');			// quan
+	$I->click(''); 					// confirm
+}
+
+function test_deleteItem($I) {
+	$I->amOnPage('/show-product,php');
+	$I->click('');
 }
 
 test_login($I);
