@@ -18,7 +18,7 @@ if((strlen($_POST['name']) == 0)||($_POST['email']==null) || ($_POST['password']
 } else {
 	$table = 'user';
 	$data = array("username"=> $_POST['email'],
-			"password"=> $_POST['email'],
+			"password"=> $_POST['password'],
 			"fullName"=> $_POST['name'],
 			);
 	$query = $db->add($table,$data);
