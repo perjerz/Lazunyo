@@ -14,6 +14,10 @@ function confirmDelete()
   else
     return false;
 }
+function logout()
+{
+ window.location.assign("logout.php");
+}
 </script>
 <html>
 <head>
@@ -28,10 +32,10 @@ function confirmDelete()
     <link rel="stylesheet" href="assets/form-basic.css">
 
 </head>
-
-
+<body>
     <header>
-        <h1>Lazunyo - Inventory Management </h1>
+        <h1>Lazunyo - Inventory Management</h1>
+        <h2 onclick="logout()">Logout</h2>
     </header>
 
     <ul>

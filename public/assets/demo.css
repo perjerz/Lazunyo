@@ -18,7 +18,7 @@ body{
 
 header{
     box-sizing: border-box;
-	text-align: center;
+	text-align: left;
     width: 100%;
     padding: 25px 40px;
     background-color: #046380;
@@ -27,7 +27,13 @@ header{
 
 
 header h1{
-    float: left;
+	text-align: left;
+	font: normal 24px/1.5 'Open Sans', sans-serif;
+	color: #F8FFFC;
+}
+
+header h2{
+	text-align: right;
 	font: normal 24px/1.5 'Open Sans', sans-serif;
 	color: #F8FFFC;
 }

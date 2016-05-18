@@ -27,6 +27,12 @@ else
 }
 $db->closedb();
 ?>
+<script type="text/javascript">
+function logout()
+{
+ window.location.assign("logout.php");
+}
+</script>
 <!DOCTYPE html>
 <html>
 
@@ -46,6 +52,7 @@ $db->closedb();
 
     <header>
         <h1>Lazunyo - Inventory Management </h1>
+        <h2 onclick="logout()">Logout</h2>
     </header>
 
     <ul>

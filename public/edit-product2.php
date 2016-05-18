@@ -11,8 +11,6 @@ $db = new Database();
 $db->connectdb(DB_NAME,DB_USER,DB_PASS);
 //DELETE COMPANY TABLE 
 $table = TB_ITEM;
-$id = $_POST['id'];
-echo $id;
 $where = "item_id=$id";
 $data = array('item_name'  => $_POST['name'],
 		'item_price' => $_POST['price'],

@@ -5,6 +5,13 @@ if(!isset($_SESSION['id']) || $_SESSION['id'] < 0)
     echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.html';</script>";
 }
 ?>
+<script type="text/javascript">
+function logout()
+{
+ window.location.assign("logout.php");
+}
+</script>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +31,7 @@ if(!isset($_SESSION['id']) || $_SESSION['id'] < 0)
 
     <header>
         <h1>Lazunyo - Inventory Management </h1>
+        <h2 onclick="logout()">Logout</h2>
     </header>
 
     <ul>
