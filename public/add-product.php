@@ -37,14 +37,14 @@ function logout()
     <ul>
         <li><a href="show-product.php">Product's Info</a></li>
         <li><a href="#" class="active"><!--class="active"-->Add</a></li>
-        <li><a href="edit-product.html">Edit</a></li>
+        <li><a href="edit-product.php">Edit</a></li>
     </ul>
 
 
     <div class="main-content">
 
         <!-- You only need this form and the form-basic.css -->
-        <form class="form-basic" method="post" action="add-product2.php">
+        <form class="form-basic" method="post" action="add-product-query.php">
 
             <div class="form-title-row">
                 <h1>Add New product</h1>

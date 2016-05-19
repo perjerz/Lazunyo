@@ -65,7 +65,7 @@ function logout()
     <div class="main-content">
 
         <!-- You only need this form and the form-basic.css -->
-        <form class="form-basic" method="post" action="edit-product2.php">
+        <form class="form-basic" method="post" action="edit-product-query.php">
 
             <div class="form-title-row">
                 <h1>Edit product</h1>
