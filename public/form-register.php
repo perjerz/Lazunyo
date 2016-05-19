@@ -26,12 +26,12 @@ if((strlen($_POST['name']) == 0)||($_POST['email']==null) || ($_POST['password']
 #-> Prepaing data for return.
 $arr = array();
 if($query) {
-	echo "<script type='text/javascript'>alert('Registered Successfully');window.location.href = 'form-login.html';</script>";
+	echo "<script type='text/javascript'>alert('Registered Successfully');window.location.href = 'index.html';</script>";
 	/*$arr["status"] = "success";
 	$arr["messages"] = "Registered Successfully.";*/
 	#header("Location: form-login.html");
 } else {
-	echo "<script type='text/javascript'>alert('Registered failed. please contact admin.');window.location.href = 'form-register.html';</script>";
+	echo "<script type='text/javascript'>alert('Registered failed. please contact admin.');window.location.href = 'index.html';</script>";
 	/*$arr["status"] = "error";
 	$arr["messages"] = "Registered failed. please contact admin.";*/	
 	#header('Location: ' . $_SERVER['HTTP_REFERER']);

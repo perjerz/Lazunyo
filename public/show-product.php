@@ -39,9 +39,9 @@ function logout()
     </header>
 
     <ul>
-      <li><a href="#">Product's Info</a></li>
-      <li><a href="add-product.html" class="active">Add</a></li>
-      <li><a href="edit-product.html">Edit</a></li>
+      <li><a href="#" class="active">Product's Info</a></li>
+      <li><a href="add-product.php" >Add</a></li>
+      <li><a href="edit-product.php">Edit</a></li>
     </ul>
 
 
