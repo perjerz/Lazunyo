@@ -4,7 +4,6 @@ if(!isset($_SESSION['id']) || $_SESSION['id'] < 0)
 {
     echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'index.html';</script>";
 }
-error_reporting(-1);
 ?>
 <script>
 function confirmDelete()
