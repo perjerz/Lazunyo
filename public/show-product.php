@@ -59,7 +59,7 @@ function logout()
                             ?>
                             <div class="user-name">
                                 <?php
-                                echo $user["fullName"];
+                                echo $user['fullName'];
                                 ?>
                             </div>
                         </div>
@@ -77,56 +77,62 @@ function logout()
     </div>
 
         <div class="content animated fadeIn">
-            <div class="container">
-
-        <!-- You only need this form and the form-basic.css -->
-
-            <div class="form-title-row">
+            <div>
                 <h1>Show Product</h1>
             </div>
-            <?php
-                #-> Include config and class files.
-               
-                #-> Query the data.
+                <?php
                 $query = $db->querydb("SELECT item_id,item_name,item_price,item_img_url,item_description,item_amount,item_likes_count FROM ".TB_ITEM." WHERE item_owner =".$_SESSION['id'].";");
-                #-> Preparing return data.
                 $i =0;
                 $arr = array();
                 if($query){
-                    echo"<div class='container'>";
-                    echo "<table border='1' style='width:100%'><tr><td>No.</td><td>Name</td><td>Price</td><td>Image</td><td>Description</td><td>Amount</td><td>Delete</td><td>Edit</td></tr>";
                     while($itemData = $db->fetchAssoc($query)){
-                        echo "<tr><td>".$i."</td>";
-                        // foreach ($itemData as $value) {
-                        //     echo "<td>".$value."</td>";
-                        //  }
-                        echo"<td>".$itemData['item_name']."</td>";
-                        echo"<td>".$itemData['item_price']."</td>";
-                        echo"<td> <img src='".$itemData['item_img_url']."' class='img-responsive'> </td>";
-                        echo"<td>".$itemData['item_description']."</td>";
-                        echo"<td>".$itemData['item_amount']."</td>";
-                        echo "<td><a href="."delete-product.php?id={$itemData['item_id']} onclick='return confirmDelete();'>Delete</a></td>";
-                        echo "<td><a href="."edit-product.php?id={$itemData['item_id']}>Edit</a></td>";
-                        echo "</tr>";
-                        $i++;
-                    }
-                    echo "</table>";
-                    echo"</div>";
-                }else{
-                    $arr["status"] = "error";
-                    $arr["messages"] = "Error occured when you query the data to item table.";
-                    echo json_encode($arr);
-                    exit();
+                ?>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div>
+                            <?php echo '<img src="'.$itemData['item_img_url'].'" class=" img-responsive img-rounded" height="200" >';  ?>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <?php 
+                            echo"<p>Product:<span style='color:#494949'>".$itemData['item_name']."</span> </p>";
+                            echo"<p>ID: <span style='color:#494949'>".$i."</span></p>";
+                            echo"<p>Price: <span style='color:#494949'>".$itemData['item_price']."</span> Baht/Unit</p>";
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <?php 
+                            echo"<p>Quantity:<span style='color:#494949'>".$itemData['item_amount']."</span> </br> left in stock</p>";
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <?php 
+                            echo "<a class='btn btn-default' role='button' href="."edit-product.php?id={$itemData['item_id']} style='margin-right:10px;'>Edit</a>";
+                            echo "<a class='btn btn-danger' role='button' href="."delete-product.php?id={$itemData['item_id']} onclick='return confirmDelete();'>Delete</a>";
+                             ?>
+                        </div>
+                    </div>
+                </div>
+            <?php 
                 }
-                $arr["status"] = "success";
-                $arr["messages"] = "success query all items";
-                #-> Return json data.
-                #-> Close database.
-                $db->closedb();
+            $arr["status"] = "success";
+            $arr["messages"] = "success query all items";
+            }else{
+                $arr["status"] = "error";
+                $arr["messages"] = "Error occured when you query the data to item table.";
+                echo json_encode($arr);
+                exit();
+                }
             ?>
+            
         </div>
     </div>
-
+<?php $db->closedb();?>
 </body>
-
 </html>
