@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['id']) && $_SESSION['id'] < 0)
 {
-    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.php';</script>";
+    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'index.html';</script>";
 }
 include_once("/includes/config.php");
 include_once("/includes/class_mysql.php");

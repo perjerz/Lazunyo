@@ -3,7 +3,7 @@
 session_start();
 if(isset($_SESSION['id']) && $_SESSION['id'] >= 0)
 {
-    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'show-product.php';</script>";
+    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'index.html';</script>";
 }
 error_reporting(-1);
 include_once(dirname(dirname(__FILE__)).'/public/includes/config.php');
