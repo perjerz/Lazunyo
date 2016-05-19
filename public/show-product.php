@@ -4,6 +4,7 @@ if(!isset($_SESSION['id']) || $_SESSION['id'] < 0)
 {
     echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.html';</script>";
 }
+error_reporting(-1);
 ?>
 <script>
 function confirmDelete()
@@ -30,6 +31,7 @@ function logout()
 
     <link rel="stylesheet" href="assets/demo.css">
     <link rel="stylesheet" href="assets/form-basic.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 </head>
 <body>
@@ -56,8 +58,9 @@ function logout()
             </div>
             <?php
                 #-> Include config and class files.
-                include_once("/includes/config.php");
-                include_once("/includes/class_mysql.php");
+               
+                include_once(dirname(dirname(__FILE__)).'/public/includes/config.php');
+                include_once(dirname(dirname(__FILE__)).'/public/includes/class_mysql.php');
                 #-> Get data from js and initialize
                 #$data = file_get_contents("php://input");
                 #$json = json_decode($data);
@@ -70,12 +73,17 @@ function logout()
                 $i =0;
                 $arr = array();
                 if($query){
-                    echo "<table border='1' style='width:100%'><tr><td>No.</td><td>ID</td><td>Name</td><td>Price</td><td>Image</td><td>Description</td><td>Amount</td><td>Likes</td><td>Delete</td><td>Edit</td></tr>";
+                    echo "<table border='1' style='width:100%'><tr><td>No.</td><td>Name</td><td>Price</td><td>Image</td><td>Description</td><td>Amount</td><td>Delete</td><td>Edit</td></tr>";
                     while($itemData = $db->fetchAssoc($query)){
                         echo "<tr><td>".$i."</td>";
-                        foreach ($itemData as $value) {
-                            echo "<td>".$value."</td>";
-                         }
+                        // foreach ($itemData as $value) {
+                        //     echo "<td>".$value."</td>";
+                        //  }
+                        echo"<td>".$itemData['item_name']."</td>";
+                        echo"<td>".$itemData['item_price']."</td>";
+                        echo"<td> <img src='".$itemData['item_img_url']."' class='img-responsive'> </td>";
+                        echo"<td>".$itemData['item_description']."</td>";
+                        echo"<td>".$itemData['item_amount']."</td>";
                          echo "<td><a href="."delete-product.php?id={$itemData['item_id']} onclick='return confirmDelete();'>Delete</a></td>";
                          echo "<td><a href="."edit-product.php?id={$itemData['item_id']}>Edit</a></td>";
                          echo "</tr>";

@@ -5,8 +5,9 @@ if(isset($_SESSION['id']) && $_SESSION['id'] >= 0)
 {
 	echo "<script type='text/javascript'>alert('You have already logged in.');window.location.href = 'show-product.php';</script>";
 }
-include_once("/includes/config.php");
-include_once("/includes/class_mysql.php");
+error_reporting(-1);
+include_once(dirname(dirname(__FILE__)).'/public/includes/config.php');
+include_once(dirname(dirname(__FILE__)).'/public/includes/class_mysql.php');
 #-> Get data from js and initialize
 #$data = file_get_contents("php://input");
 #$json = json_decode($data);
