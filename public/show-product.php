@@ -2,9 +2,9 @@
 session_start();
 if(!isset($_SESSION['id']) || $_SESSION['id'] < 0)
 {
-    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'form-login.html';</script>";
+    echo "<script type='text/javascript'>alert('You have not logged in yet.');window.location.href = 'index.html';</script>";
 }
-error_reporting(-1);
+error_reporting(E_ALL ^ E_DEPRECATED);
 ?>
 <script>
 function confirmDelete()
