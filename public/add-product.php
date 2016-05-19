@@ -37,8 +37,7 @@ function logout()
     <ul>
         <li><a href="show-product.php">Product's Info</a></li>
         <li><a href="#" class="active">Add</a></li>
-        <li><a href="edit-product.php">Edit</a></li>
-    </ul>
+        </ul>
 
 
     <div class="main-content">
