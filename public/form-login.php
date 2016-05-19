@@ -25,12 +25,6 @@ if($query) {
 	if($result["user_id"]) {
 		$_SESSION['id'] = $result["user_id"];
 		echo "<script type='text/javascript'>window.location.href = 'show-product.php';</script>";
-		/*$arr["status"] = "success";
-		$arr["data"]["attributes"]["_id"]=$result["user_id"];
-		$arr["data"]["attributes"]["name"]=$result["fullName"];
-		$arr["data"]["attributes"]["email"]=$result["username"];
-		$arr["data"]["attributes"]["address"]=$result["address"];
-		$arr["data"]["attributes"]["type"]=$result["type"];	*/
 	} else {
 		$arr["status"] = "error";
 		if(isset($username)) 

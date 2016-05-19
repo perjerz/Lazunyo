@@ -1,17 +1,15 @@
 <?php
 session_start();
 #-> Include config and class files.
-include_once("/includes/config.php");
-include_once("/includes/class_mysql.php");
-#-> Get data from js and initialize
-#$data = file_get_contents("php://input");
-#$json = json_decode($data);
+include_once(dirname(dirname(__FILE__)).'/public/includes/config.php');
+include_once(dirname(dirname(__FILE__)).'/public/includes/class_mysql.php');
 #-> Connect to the database
 $db = new Database();
 $db->connectdb(DB_NAME,DB_USER,DB_PASS);
-//DELETE COMPANY TABLE 
+
+$id = $_SESSION['id'];
 $table = TB_ITEM;
-$where = "item_id=$id";
+$where = "item_id= $id";
 $data = array('item_name'  => $_POST['name'],
 		'item_price' => $_POST['price'],
 		'item_img_url' => $_POST['image'],

@@ -1,8 +1,8 @@
 <?php
 session_start();
 #-> Include config and class files.
-include_once('includes/config.php');
-include_once('includes/class_mysql.php');
+include_once(dirname(dirname(__FILE__)).'/public/includes/config.php');
+include_once(dirname(dirname(__FILE__)).'/public/includes/class_mysql.php');
 #-> Get data from js and initialize
 
 $data = array('item_name'  => $_POST['name'],
