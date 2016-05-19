@@ -46,6 +46,7 @@ function logout()
 
     <link rel="stylesheet" href="assets/demo.css">
     <link rel="stylesheet" href="assets/form-basic.css">
+    <link rel="stylesheet" href="assets/main.css">
 
 </head>
 
