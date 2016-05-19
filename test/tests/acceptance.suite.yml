@@ -8,5 +8,7 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: 'http://localhost/lazunyo/form-login.html'
+            url: 'http://localhost/public/'
             browser: chrome
+            capabilities:
+                 unexpectedAlertBehaviour: 'accept'
