@@ -53,7 +53,7 @@ function logout()
             <div class="form-row">
                 <label>
                     <span>Product's Name</span>
-                    <input type="text" name="name" placeholder="Fill Product's Name" pattern="[A-Za-z]" required>
+                    <input type="text" name="name" placeholder="Fill Product's Name" required>
                 </label>
             </div>
             <div class="form-row">
