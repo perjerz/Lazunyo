@@ -73,6 +73,12 @@ function logout()
                     <a href="add-product.php" class="menu-item"><i class="fa fa-plus"></i> Add New Product</a>
                 </ul>
             </div>
+            <div class="tab-section">
+                <ul class="menu-list">
+                    <p class="topic">user menu</p>
+                    <a href="logout.php" class="menu-item"><i class="fa fa-list-alt"></i> Logout</a>
+                </ul>
+            </div>
         </div>
     </div>
 
