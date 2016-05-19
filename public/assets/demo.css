@@ -18,17 +18,18 @@ body{
 
 header{
     box-sizing: border-box;
-	text-align: left;
     width: 100%;
     padding: 25px 40px;
-    background-color: #046380;
+    background-color: #4183D7;
+    text-align: center;
     overflow: hidden;
 }
 
 
 header h1{
-	text-align: left;
+	text-align: center;
 	font: normal 24px/1.5 'Open Sans', sans-serif;
+    font-size: 38px;
 	color: #F8FFFC;
 }
 
