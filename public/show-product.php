@@ -88,7 +88,6 @@ function logout()
         </div>
             <?php
             $query = $db->querydb("SELECT item_id,item_name,item_price,item_img_url,item_description,item_amount,item_likes_count FROM ".TB_ITEM." WHERE item_owner =".$_SESSION['id'].";");
-            $i =0;
             $arr = array();
             if($query){
                 while($itemData = $db->fetchAssoc($query)){
@@ -104,7 +103,7 @@ function logout()
                     <div>
                         <?php 
                         echo"<p>Product:<span style='color:#494949'>".$itemData['item_name']."</span> </p>";
-                        echo"<p>ID: <span style='color:#494949'>".$i."</span></p>";
+                        echo"<p>ID: <span style='color:#494949'>".$itemData['item_id']."</span></p>";
                         echo"<p>Price: <span style='color:#494949'>".$itemData['item_price']."</span> Baht/Unit</p>";
                         ?>
                     </div>

@@ -7,9 +7,9 @@ include_once(dirname(dirname(__FILE__)).'/public/includes/class_mysql.php');
 $db = new Database();
 $db->connectdb(DB_NAME,DB_USER,DB_PASS);
 
-$id = $_SESSION['id'];
 $table = TB_ITEM;
-$where = "item_id= $id";
+$id = $_POST['id'];
+$where = "item_id=$id";
 $data = array('item_name'  => $_POST['name'],
 		'item_price' => $_POST['price'],
 		'item_img_url' => $_POST['image'],
